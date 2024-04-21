@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Textarea HTML</title>
+  <style>
+    .card {
+      width: 300px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      margin: 0 auto;
+      margin-top: 50px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    button:focus {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <textarea id="message" placeholder="Enter your message"></textarea>
+    <button aria-label="Submit" onclick="handleSubmit()">Submit</button>
+    <div id="messages"></div>
+  </div>
+
+  <script>
+    let message = document.getElementById('message');
+    let messages = document.getElementById('messages');
+
+    function handleSubmit() {
+      if (message.value.trim() !== '') {
+        let newMessage = document.createElement('p');
+        newMessage.textContent = message.value;
+        messages.appendChild(newMessage);
+        message.value = '';
+      }
+    }
+  </script>
+</body>
+</html>
